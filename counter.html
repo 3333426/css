@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>function-counter</title>
+</head>
+<body>
+<style>
+	
+dl { counter-reset:test1 0;}
+dt { counter-increment: test1; counter-reset: test2 0;}
+dt:before{ content:counter(test1)"、";}
+dd{ counter-increment:test2;}
+dd:before{
+   content:counter(test1)"-"counter(test2)"、";
+ }
+
+</style>
+<dl>
+        <dt>example</dt>
+        <dd>example</dd>
+        <dd>example</dd>
+        <dd>example</dd>
+        <dt>example2</dt>
+        <dd>example2</dd>
+        <dd>example2</dd>
+        <dd>example2</dd>
+        <dd>example2</dd>
+</dl>
+<!-- 参考地址：https://www.cnblogs.com/jiajia123/p/9053587.html -->
+</body>
+</html>
