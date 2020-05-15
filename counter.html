@@ -15,6 +15,114 @@ dd:before{
    content:counter(test1)"-"counter(test2)"、";
  }
 
+ ul {
+ 	counter-reset:counterli;
+ 	list-style: cjk-heavenly-stem;
+ }
+ li {
+ 	counter-increment:counterli；
+ }
+ li::before{
+ 	content(counterli)
+ }
+
+ @counter-style cjk-heavenly-stem{
+
+　　　　system:numeric;
+
+/*　　　　symbols:"\7532" "\4E59" "\4E19" "\4E01" "\620A" "\5DF1" "\5E9A" "\8F9B" "\58EC" "\7678";*/
+
+　　　　suffix:"、";
+
+}
+ /*
+counter-reset: count 0  标识计数器count从1开始
+counter-reset: count2 2 标识计数器count2 从3开始
+counter-reset: count1 0 count3 0 count4 0 声明了三个计数器，count1，count2，count3
+
+
+counter-increment: count 1 表明每次递增 1 
+counter-increment：count 2 表明每次递增 2
+
+
+CSS3 Counters可以允许我们使用css对页面中的任意元素进行计数，实现类似于有序列表的功能。与有序列表相比，突出特性在于可以对任意元素计数，同时实现个性化计数。
+
+计数器相关属性：
+
+counter-reset　　定义计数器，包括初始值，作用域等； 语法[<indentifier> <integer>?]+|none |inherit, 当元素display：none时，该属性失效；
+counter-increment　　设置计数器的增数；语法[<indentifiert><integer>?]+|none
+content　　在::before 和 ::after 中生成内容；
+counter()　　在content属性中使用，用来调用计数器；[counter(name)] | [counter(name,list-style-type)] | [counters(name,string)] | [counters(name,string,list-style-type)]
+@counter-style　　自定义列表样式；@counter-style counerStyleName{system:算法；range:使用范围；symbols:符号；additive-symbols:符号；prefix：前缀；suffix:后缀；pad:补零(eg.01,02,03);negative:负数策略；fallback:出错后的默认值；speakas:语音策略；}
+步骤：
+
+　　1.定义计数器；//需计数元素的父元素,eg:ul{counter-reset:counterli}
+
+　　2.设置增数；　//计数元素,eg:li{counter-increment:counterli}；
+
+　　3.调用计数器；//计数元素的伪对象上li::before{content(counterli)}；
+
+ 
+
+例子：
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+counter-reset:counterA;　　定义计数器counterA,初始值0；
+counter-reset:counterB 6;　　定义计数器counterB,初始值6；
+counter-reset:counterA 10 counterB;　　定义计数器counterA,初始值10,；定义计数器counterB,初始值0；
+counter-reset:counterA 10 counterB 20;　　定义计数器counterA,初始值10,；定义计数器counterB,初始值20；
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+counter-increment:counterA;　　增数计数器counterA,每次加1；
+counter-increment:counterA 2;　　增数计数器counterA,每次加2；
+counter-increment:counterA 2 counterB -1;同时设置counterA,counterB的增数，分别是2，-1；
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+content:"Fig." counter(counterA);　　混合字符串和计数器counterA;
+content:"Fig." counter(counterA,lower-alpha);　　指定计数器的列表样式；
+content:counters(section,".") " "; 　　在计数器之间加点号，同时在计数器末尾加一个空格；
+content:counters(section,".",lower-roman) " ";定义计数器为小写罗马数字格式，同时加点号，空格；
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ @counter-style cjk-heavenly-stem{
+
+　　　　system:alphabetic;
+
+　　　　symbols:"\7532" "\4E59" "\4E19" "\4E01" "\620A" "\5DF1" "\5E9A" "\8F9B" "\58EC" "\7678"; 甲 乙 丙 丁 戊 己 庚 辛 壬 癸
+
+　　　　suffix:"、";
+
+}
+
+@counter-style <counter-style-name> {
+    system: <counter system>
+    symbols: <counter symbols>
+    additive-symbols: <additive-symbols>
+    negative: <negative symbol>
+    prefix: <prefix>
+    suffix: <suffix>
+    range: <range>
+    pad: <padding>
+    speak-as: <speak-as>
+    fallback: <counter-style-name>
+}
+
+
+
+system: cyclic;
+system: numeric;
+system: alphabetic;
+system: symbolic;
+system: additive;
+system: fixed;
+
+
+system: fixed 3;
+system: extends decimal
+
+ */
+
 </style>
 <dl>
         <dt>example</dt>
@@ -27,6 +135,17 @@ dd:before{
         <dd>example2</dd>
         <dd>example2</dd>
 </dl>
-<!-- 参考地址：https://www.cnblogs.com/jiajia123/p/9053587.html -->
+
+<ul>
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</ul>
+<!-- 参考地址：
+https://www.cnblogs.com/jiajia123/p/9053587.html
+https://www.cnblogs.com/ayqxm/p/5603024.html
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/@counter-style
+ -->
 </body>
 </html>

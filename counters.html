@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>counters</title>
+</head>
+<body>
+	<style>
+/*ol {
+  counter-reset: listCounter;
+}
+li {
+  counter-increment: listCounter;
+}
+li::marker {
+   content:  counters(listCounter, '.', upper-roman) ') ';
+}
+li::before {
+  content:  counters(listCounter, ".") " == " counters(listCounter, ".", lower-roman) ;
+}*/
+
+ol {
+  counter-reset: count;
+}
+li {
+  counter-increment: count;
+}
+li::marker { 
+	color: red;
+	font-size: 20px;
+   /*content: counters(count, '.', upper-alpha) ') '; */
+}
+li::before {
+  content: counters(count, ".", decimal-leading-zero) " == " counters(count, ".", lower-alpha);
+}
+
+</style>
+
+<ol>
+  <li>
+     <ol> 
+        <li></li>
+        <li></li>
+        <li></li> 
+      </ol>
+  </li>
+  <li></li>
+  <li></li>
+  <li>
+     <ol> 
+        <li></li>
+        <li>
+           <ol> 
+              <li></li>
+              <li></li>
+              <li></li> 
+           </ol>
+        </li>
+      </ol>
+  </li>
+</ol>
+	<!-- https://developer.mozilla.org/en-US/docs/Web/CSS/counters -->
+</body>
+</html>
