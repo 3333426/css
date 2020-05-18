@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>attr</title>
+</head>
+<body>
+<style>
+a:after {content: " (" attr(href) ")";}
+div:after { content:"("attr(title)")"; }
+</style>
+<a href="http://www.baidu.cn">后面跟着链接</a></p>
+<div title="test">后面跟着title</div>
+	
+</body>
+</html>
