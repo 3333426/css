@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>length</title>
+</head>
+<body>
+<style>
+body { font-size: 16px; }
+.demo { background: pink }
+.demo p {
+	width:5ch;
+	background: #ccc;
+	font-family: monospace;
+	/*font-family: verdana;*/
+	/*font-size: 10em;*/
+}
+.em { background: #ccc }
+.em p { width: 2ih; background: #eee; }
+
+.cm { width: 18cm; background: green }
+.cm2 { width: 680px; background: green }
+.mm { width: 180mm; background: green }
+.q { width: 720q; background: green }
+
+
+
+/*
+	https://developer.mozilla.org/en-US/docs/Web/CSS/length
+	ch 一个字符0的长度，务必跟等宽字体一起使用
+	ex 字母x的高度，一般来说1ex ≈ 0.5em
+	em 值并不是固定的，根据字体大小，比如16px，那1em = 16px，弹性布局可能用的比较多
+	rem 根据root节点的font-size,默认浏览器的是16px，响应式用的多
+	*ic 表示当前字体中“水”这一字符的宽度  不建议使用，兼容性有问题
+	*ih 等于所用元素的“line-height”属性的计算值，转换为绝对长度 不建议使用，兼容性有问题
+	*rih r代表root,ih还是上面那货，不想研究这属性了 兼容性有问题
+
+
+	vh 把屏幕分成100份，取里面1%，比如屏幕高度是1000px，1vh=10px
+	vw 同上，屏幕分层100份，取里面1%， 比如屏幕宽度是1000px，1vh=10px
+	*vi *vb 这两个属性不靠谱
+	vmin 相对于视口的宽度或高度中较小的那个。其中最小的那个被均分为100单位的vmin
+	vmax 相对于视口的宽度或高度中较大的那个。其中最大的那个被均分为100单位的vmin
+
+
+	普通移动端或者PC很少用到这些参数，了解就好，就怕闲着蛋疼的面试官问
+	px 显示器的一个点
+	cm 1cm = 96px/2.54
+	mm 1mm = 1/10 cm
+	q  1Q = 1/40 cm
+	in 1in = 2.54cm = 96px
+	pc 1pc = 12pt = 1/6 in
+	pt 1pt = 1/72 in
+*/
+</style>
+<div class="demo">
+	<p>MMMMM</p>
+	<p>00000</p>
+</div>
+
+<div class="em">
+	<p id="p1">汉字</p>
+	<p>MMMMM</p>
+</div>
+	
+<div class="cm">cm</div>
+<div class="cm2">cm</div>
+<div class="mm">180mm</div>
+<div class="q">180mm</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
